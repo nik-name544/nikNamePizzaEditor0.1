@@ -1,35 +1,38 @@
-// import react from 'react'
-// import ReactDOM from 'react-dom'; 
-
-const Message = (props) => {
-  return <p>{props.text}</p>
-}
-
-const Head = <h1>Golova ili shapka</h1>
-
-const flag = false
-
-const items = [
-  { id: 0, text: "some text" },
-  { id: 1, text: "some text1" },
-  { id: 2, text: "some text2" },
-]
+import react from 'react'
+import FilterableProductTable from './components/FilterableProductTable'
+import Counter from './counter/counter'
+import CounterFunc from './counter/counterFunc'
+import NewItemBtn from './newItemBtn/newItemBtnCopy'
 
 function App() {
   return (
-    <div style={{fontSize: 25, padding: 100}}>
-      <div>{flag ? Head : <p>flag rovno !true</p>}</div>
-      <Message text="darova" />
-      <ul>
-        {
-          items.map(i => (
-            <li key={i.id}>{i.text}</li>
-          ))
-        }
-      </ul>
-      <a href="https://codesandbox.io/s/flamboyant-mcclintock-88owr?file=/src/App.js">дз с блока "Пишем лейаут на `JSX`" </a>
-      <hr/>
-      <button onClick={()=> alert("privet/darova")}>@</button>
+    <div style={{ padding: 50, textAlign: 'center' }}>
+      <h1>
+        FilterableProductTable
+    </h1>
+      <FilterableProductTable />
+      <hr />
+      <h2>
+        Counter
+      </h2>
+      <Counter />
+      <hr />
+      <h2>
+        CounterFunc
+      </h2>
+      <CounterFunc />
+      <hr />
+      <h3>
+        place for homework
+      </h3>
+      <strong>
+        <a href="https://codesandbox.io/s/flamboyant-mcclintock-88owr?file=/src/App.js">дз с блока "Пишем лейаут на `JSX`"</a>
+      </strong>
+      <hr /> 
+      <strong>
+        <a href="https://codesandbox.io/s/cool-jennings-pklsg?file=/src/ParentComponent.js">дз с блока "Что такое компоненты в React`"</a>
+      </strong>
+      <hr /> 
     </div>
   )
 }
