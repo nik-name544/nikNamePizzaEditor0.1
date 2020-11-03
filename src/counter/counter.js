@@ -16,7 +16,7 @@ export default class Counter extends React.Component {
             >
                 Count+
                 
-            </button>
+            </button> 
             <hr/>
             <strong>
                 {this.state.count}
