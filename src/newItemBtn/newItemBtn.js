@@ -1,4 +1,5 @@
-import React from 'react'; 
+import React from 'react';
+import Button from '@material-ui/core/Button';
 
 export default class extends React.Component {
     state = {
@@ -16,12 +17,12 @@ export default class extends React.Component {
 
         this.setState({
             elements: newArray
-        }) 
+        })
     }
 
-    handleDeleteElement = (id )=> {
+    handleDeleteElement = (id) => {
         this.setState(prevState => ({
-            elements: prevState.elements.filter(el => el.id != id)
+            elements: prevState.elements.filter(el => el.id !== id)
         }));
     };
 
@@ -29,16 +30,25 @@ export default class extends React.Component {
         let elements = this.state.elements.map((item, i) => {
             return (
                 <div key={item.id}>
-                    <p onDoubleClick={()=>this.handleDeleteElement(item.id)}>
-                    {item.id}: hello i'm item {i + 1}
+                    <p onDoubleClick={() => this.handleDeleteElement(item.id)}>
+                        {item.id}: hello i'm item {i + 1}
                     </p>
                 </div>
             )
-        }) 
+        })
         return (
             <>
-                <button onClick={this.onAddChild}>here you can click</button>
-                <p>{elements}</p>
+                <Button
+                    onClick={this.onAddChild}
+                    variant="outlined"
+                    color="secondary"
+                    style={{ marginBottom: 20}}
+                >
+                    here you can click
+                    </Button>
+                <div>
+                    {elements}
+                </div>
             </>
         )
     }
