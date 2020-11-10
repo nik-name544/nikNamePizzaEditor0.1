@@ -7,6 +7,7 @@ import PizzaEditorVegetables from './PizzaEditorVegetables'
 import PizzaEditorMeat from './PizzaEditorMeat'
 import { observer } from 'mobx-react'
 import PizzaStore from './store/pizzaStore'
+import './pizzaEditorStyle.css'
 
 
 const PizzaEditor = () => {
@@ -14,34 +15,47 @@ const PizzaEditor = () => {
 
     const onSubmit = () => {
         setFlag(!flag)
-        console.log(PizzaStore.listOfItems)
     }
 
     if (flag) {
 
         return (
-            <>
+            <div className="mainApp">
                 <form>
-                    <PizzaEditorSize />
-                    <br />
-                    <PizzaEditorDough />
-                    <br />
-                    <PizzaEditorSauce />
-                    <br />
-                    <PizzaEditorCheese />
-                    <br />
-                    <PizzaEditorVegetables />
-                    <br />
-                    <PizzaEditorMeat />
-                    <br />
+                    <div className="block">
+                        <PizzaEditorSize />
+                    </div>
+                    <div className="block">
+                        <PizzaEditorDough />
+                    </div>
+                    <div className="block">
+                        <PizzaEditorSauce />
+                    </div>
+                    <div className="block">
+                        <PizzaEditorCheese />
+                    </div>
+                    <div className="block">
+                        <PizzaEditorVegetables />
+                    </div>
+                    <div className="block">
+                        <PizzaEditorMeat />
+                    </div>
                     <button type="button" onClick={onSubmit} >send</button>
                 </form>
-            </>
+            </div>
         )
     } else {
-        let pizzaItems = PizzaStore.listOfItems
-        const uniquePizzaItem = pizzaItems.filter((item, i, array) => array.indexOf(item) === i)
-        let pizzaItem = uniquePizzaItem.map((item, i) => {
+        const tfList = PizzaStore.pizzaData[1]
+        const newTfList = []
+        for (const prop in tfList) {
+            if (tfList[prop]) {
+                newTfList.push(prop)
+                console.log(tfList[prop] + ' kdkd')
+            }
+        }
+        console.log(newTfList)
+        console.log(tfList)
+        let pizzaItem = newTfList.map((item, i) => {
             return (
                 <div key={i}>
                     <li>

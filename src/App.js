@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './App.css';
 import PizzaEditor from './pizzaEditor/pizzaEditor'
-import { inject, observer } from 'mobx-react';
+import { observer } from 'mobx-react';
 
 function App() { 
   return (

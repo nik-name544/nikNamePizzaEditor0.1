@@ -3,47 +3,47 @@ import { observer } from 'mobx-react'
 import PizzaStore from './store/pizzaStore'
 
 const PizzaEditorCheese =()=> {
-    const [cheeseBox, setCheeseBox] = useState(false)
-    const [cheeseBox1, setCheeseBox1] = useState(false)
-    const [cheeseBox2, setCheeseBox2] = useState(false)
+    const [mozzarellaBox, setMozzarellaBox] = useState(false)
+    const [cheddarBox, setCheddarBox] = useState(false)
+    const [dorBlueBox, setdorBlueBox] = useState(false)
     let mozzarella = PizzaStore.pizzaData[0].cheeseP.mozzarella
     let cheddar = PizzaStore.pizzaData[0].cheeseP.cheddar 
     let dorBlue = PizzaStore.pizzaData[0].cheeseP.dorBlue
 
     const mozzarellaP = () => {
-        if (cheeseBox ) { 
+        if (mozzarellaBox ) { 
             PizzaStore.total(-mozzarella) 
-            setCheeseBox(false)
-            PizzaStore.addItem('')
+            setMozzarellaBox(false) 
+            PizzaStore.pizzaData[1].mozzarella = false
             
         } else { 
+            PizzaStore.pizzaData[1].mozzarella = true
             PizzaStore.total(mozzarella) 
-            setCheeseBox(true)
-            PizzaStore.addItem('mozzarella')
+            setMozzarellaBox(true) 
         }
     }
 
     const cheddarP = () => {
-        if (cheeseBox1 ) { 
+        if (cheddarBox ) { 
             PizzaStore.total(-cheddar) 
-            setCheeseBox1(false)
-            PizzaStore.addItem('')
+            setCheddarBox(false) 
+            PizzaStore.pizzaData[1].cheddar = false
         } else { 
             PizzaStore.total(cheddar) 
-            setCheeseBox1(true)
-            PizzaStore.addItem('cheddar')
+            setCheddarBox(true) 
+            PizzaStore.pizzaData[1].cheddar = true
         }
     }
 
     const dorBlueP = () => {
-        if (cheeseBox2) { 
+        if (dorBlueBox) { 
             PizzaStore.total(-dorBlue) 
-            setCheeseBox2(false)
-            PizzaStore.addItem('')
+            setdorBlueBox(false)
+            PizzaStore.pizzaData[1].dorBlue = false
         } else { 
             PizzaStore.total(dorBlue) 
-            setCheeseBox2(true)
-            PizzaStore.addItem('dorBlue')
+            setdorBlueBox(true)
+            PizzaStore.pizzaData[1].dorBlue = true
         }
     }
 
@@ -52,19 +52,19 @@ const PizzaEditorCheese =()=> {
             <label>mozzarella</label>
             <input
                 type="checkbox"
-                checked={cheeseBox}
+                checked={mozzarellaBox}
                 onChange={mozzarellaP}
             />
             <label>cheddar</label>
             <input
                 type="checkbox"
-                checked={cheeseBox1}
+                checked={cheddarBox}
                 onChange={cheddarP}
             />
             <label>dorBlue</label>
             <input
                 type="checkbox"
-                checked={cheeseBox2}
+                checked={dorBlueBox}
                 onChange={dorBlueP}
             />
         </>

@@ -3,40 +3,18 @@ import { observable, action } from 'mobx';
 class PizzaStore {
     @observable pizzaData = pizzaDataStore()
 
-    @observable defoultP = 240 
+    @observable defoultP = 225 
 
-    @observable listOfItems = []
 
     @observable defoultSauce = this.defoultP
 
     @action total(newP) {
         this.defoultP += newP
-        console.log(this.defoultP)
-    }
-
-    @action addItem(item) {
-        let newItem = item.toString()
-        this.listOfItems.push(newItem)
-    }
-
-    @action addItemRadio(item) { 
-        const newItem = item.toString() 
-        this.listOfItems.push(newItem)
     }
  
-    @action radioTotal(sauce) {
-        console.log(sauce)
-        if (sauce === 'whiteSauce') {
-            this.defoultSauce = this.pizzaData[0].sauceP.whiteSauce - this.pizzaData[0].sauceP.tomatoSauce 
-        } else if (sauce === 'spicySauce') {
-            this.defoultSauce = this.pizzaData[0].sauceP.spicySauce - this.pizzaData[0].sauceP.tomatoSauce 
-        } else if (sauce === 'tomatoSauce') {
-            this.defoultSauce = this.pizzaData[0].sauceP.tomatoSauce - this.pizzaData[0].sauceP.tomatoSauce 
-        }
-        // console.log(this.defoultP + ' 1234')
-        // console.log(this.defoultSauce + ' 12345')
-        // console.log(this.defoultP + this.defoultSauce + ' 123456') 
-    } 
+    @action radioTotal(sauce) { 
+        this.defoultSauce = this.pizzaData[0].sauceP[sauce]
+    }
 }
 
 
@@ -79,8 +57,25 @@ function pizzaDataStore() {
                 ham: 20
             }
 
-        }
-
+        },
+        {
+            tomato: false,
+            mushrooms: false,
+            pepper: false,
+            size30: true,
+            size35: false,
+            thin: true,
+            fluffy: false,
+            tomatoSauce: false,
+            whiteSauce: false,
+            spicySauce: false,
+            mozzarella: false,
+            cheddar: false,
+            dorBlue: false,
+            bacon: false,
+            pepperoni: false,
+            ham: false,
+        }, 
     ]
 }
 

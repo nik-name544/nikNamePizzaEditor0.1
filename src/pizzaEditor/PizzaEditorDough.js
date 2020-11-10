@@ -10,14 +10,20 @@ const PizzaEditorDough = () => {
 
     const handleDough = (e) => {
         setDough({ option: e.target.value })
-        if (dough.option === 'dough2') {
-            let some1 = -dougFluffyP + dougThinP
-            PizzaStore.total(some1) 
+    }
+
+    const changeDough = (e) =>{
+        if (e.target.value  === 'dough1') {
+            let doughP = -dougFluffyP + dougThinP
+            PizzaStore.total(doughP) 
+            PizzaStore.pizzaData[1].thin = true
+            PizzaStore.pizzaData[1].fluffy = false
             PizzaStore.addItemRadio('doug thin')
-        } else if (dough.option === 'dough1') {
-            let some = -dougThinP + dougFluffyP
-            PizzaStore.total(some) 
-            PizzaStore.addItemRadio('doug fluffy')
+        } else if (e.target.value  === 'dough2') {
+            let doughP1 = -dougThinP + dougFluffyP
+            PizzaStore.total(doughP1) 
+            PizzaStore.pizzaData[1].thin =  false
+            PizzaStore.pizzaData[1].fluffy = true
         } 
     }
  
@@ -29,14 +35,16 @@ const PizzaEditorDough = () => {
                 type="radio"
                 value="dough1"
                 checked={dough.option === 'dough1'}
-                onChange={handleDough.bind(this)}
+                onChange={handleDough }
+                onClick={changeDough}
             />
             <label>dough: fluffy</label>
             <input
                 type="radio"
                 value="dough2"
                 checked={dough.option === 'dough2'}
-                onChange={handleDough.bind(this)}
+                onChange={handleDough }
+                onClick={changeDough}
             />
         </>
     )

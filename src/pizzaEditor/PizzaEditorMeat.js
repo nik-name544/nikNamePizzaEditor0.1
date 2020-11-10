@@ -15,11 +15,11 @@ const PizzaEditorMeat = ()=> {
         if (baconBox ) {
             PizzaStore.total(-bacon)  
             setBaconBox(false)
-            PizzaStore.addItem('')
+            PizzaStore.pizzaData[1].ham = false
         } else {
             PizzaStore.total(bacon)  
             setBaconBox(true)
-            PizzaStore.addItem('bacon')
+            PizzaStore.pizzaData[1].ham = true 
         }
     }
 
@@ -27,11 +27,11 @@ const PizzaEditorMeat = ()=> {
         if (pepperoniBox ) {
             PizzaStore.total(-pepperoni)  
             setPepperoniBox(false)
-            PizzaStore.addItem('')
+            PizzaStore.pizzaData[1].ham = false
         } else {
             PizzaStore.total(pepperoni)  
             setPepperoniBox(true)
-            PizzaStore.addItem('pepperoni')
+            PizzaStore.pizzaData[1].ham = true
         }
     }
 
@@ -39,11 +39,11 @@ const PizzaEditorMeat = ()=> {
         if (hamBox) {
             PizzaStore.total(-ham)  
             setHamBox(false)
-            PizzaStore.addItem('')
+            PizzaStore.pizzaData[1].ham = false
         } else {
             PizzaStore.total(ham) 
-            setHamBox(true)
-            PizzaStore.addItem('pepperoni')
+            setHamBox(true) 
+            PizzaStore.pizzaData[1].ham = true
         }
     }
 
