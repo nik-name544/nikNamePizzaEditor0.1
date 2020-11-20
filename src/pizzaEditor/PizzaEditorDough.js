@@ -12,41 +12,53 @@ const PizzaEditorDough = () => {
         setDough({ option: e.target.value })
     }
 
-    const changeDough = (e) =>{
-        if (e.target.value  === 'dough1') {
+    const changeDough = (e) => {
+        if (e.target.value === 'dough1') {
             let doughP = -dougFluffyP + dougThinP
-            PizzaStore.total(doughP) 
+            PizzaStore.total(doughP)
             PizzaStore.pizzaData[1].thin = true
             PizzaStore.pizzaData[1].fluffy = false
-            PizzaStore.addItemRadio('doug thin')
-        } else if (e.target.value  === 'dough2') {
+        } else if (e.target.value === 'dough2') {
             let doughP1 = -dougThinP + dougFluffyP
-            PizzaStore.total(doughP1) 
-            PizzaStore.pizzaData[1].thin =  false
+            PizzaStore.total(doughP1)
+            PizzaStore.pizzaData[1].thin = false
             PizzaStore.pizzaData[1].fluffy = true
-        } 
+        }
     }
- 
+
 
     return (
-        <>
-            <label>dough: thin</label>
-            <input
-                type="radio"
-                value="dough1"
-                checked={dough.option === 'dough1'}
-                onChange={handleDough }
-                onClick={changeDough}
-            />
-            <label>dough: fluffy</label>
-            <input
-                type="radio"
-                value="dough2"
-                checked={dough.option === 'dough2'}
-                onChange={handleDough }
-                onClick={changeDough}
-            />
-        </>
+        <div className="dough">
+            <p className="dough__title">Тесто</p>
+            <div className="dough__inner">
+                <label className="dough-thin__label">
+                    <input
+                        type="radio"
+                        value="dough1"
+                        checked={dough.option === 'dough1'}
+                        onChange={handleDough}
+                        onClick={changeDough}
+                        className="dough-thin__box"
+                    />
+                    <span id="dough-thin__text">
+                        Тонкое
+                </span>
+                </label>
+                <label className="dough-fluffy__label">
+                    <input
+                        type="radio"
+                        value="dough2"
+                        checked={dough.option === 'dough2'}
+                        onChange={handleDough}
+                        onClick={changeDough}
+                        className="dough-fluffy__box"
+                    />
+                    <span id="dough-fluffy__text">
+                        Пышное
+                </span>
+                </label>
+            </div>
+        </div>
     )
 }
 
