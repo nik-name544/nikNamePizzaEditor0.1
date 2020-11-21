@@ -5,8 +5,9 @@ class PizzaStore {
 
     @observable defoultP = 225 
 
+    @observable sum = this.defoultP + this.defoultSauce
 
-    @observable defoultSauce = this.defoultP
+    @observable defoultSauce = 0
 
     @action total(newP) {
         this.defoultP += newP
