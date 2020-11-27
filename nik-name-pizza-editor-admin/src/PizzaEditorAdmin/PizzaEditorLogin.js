@@ -15,10 +15,7 @@ export default function PizzaEditorLogin() {
         resolver: yupResolver(schema),
         mode: "onBlur"
     })
-
-    // const onSubmit = (data) => {
-    //     console.log(data)
-    // }
+ 
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -39,8 +36,7 @@ export default function PizzaEditorLogin() {
                         <label className="auth-form__label">E-mail
                             <div>
                                 <input
-                                    type="text"
-                                    // type="email"
+                                    type="text" 
                                     className="auth-form__input"
                                     ref={register}
                                     name="email"
@@ -53,12 +49,12 @@ export default function PizzaEditorLogin() {
                                 <input
                                     type="password"
                                     className="auth-form__input"
+                                    // className="auth-form__input wrong"
                                     ref={register}
                                     name="password"
                                 />
                                 {errors.password && <p>{errors.password.message}</p>}
-                            </div>
-                            {/* <input type="password" className="auth-form__input wrong" /> */}
+                            </div> 
                             <span className="auth-form__wrong wrong">Неправильный пароль</span>
                         </label>
                         <div className="auth-form__btn-inner active">
